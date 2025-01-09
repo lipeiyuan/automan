@@ -1,0 +1,31 @@
+object FormMain: TFormMain
+  Left = 3192
+  Height = 705
+  Top = 1425
+  Width = 1004
+  HorzScrollBar.Page = 960
+  VertScrollBar.Page = 632
+  AutoScroll = True
+  Caption = 'FormMain'
+  ClientHeight = 705
+  ClientWidth = 1004
+  DesignTimePPI = 144
+  LCLVersion = '3.6.0.0'
+  object AddTradeButton: TButton
+    Left = 64
+    Height = 38
+    Top = 104
+    Width = 113
+    Caption = 'AddTrade'
+    TabOrder = 0
+    OnClick = AddTradeButtonClick
+  end
+  object DebugEdit: TEdit
+    Left = 280
+    Height = 288
+    Top = 344
+    Width = 680
+    AutoSize = False
+    TabOrder = 1
+  end
+end
