@@ -1,10 +1,10 @@
 object FormMain: TFormMain
-  Left = 3192
+  Left = 1349
   Height = 705
-  Top = 1425
+  Top = 574
   Width = 1004
-  HorzScrollBar.Page = 960
-  VertScrollBar.Page = 632
+  HorzScrollBar.Page = 177
+  VertScrollBar.Page = 142
   AutoScroll = True
   Caption = 'FormMain'
   ClientHeight = 705
@@ -19,13 +19,5 @@ object FormMain: TFormMain
     Caption = 'AddTrade'
     TabOrder = 0
     OnClick = AddTradeButtonClick
-  end
-  object DebugEdit: TEdit
-    Left = 280
-    Height = 288
-    Top = 344
-    Width = 680
-    AutoSize = False
-    TabOrder = 1
   end
 end

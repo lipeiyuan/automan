@@ -39,6 +39,7 @@
       <Unit>
         <Filename Value="testcaseutils.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="TestCaseUtils"/>
       </Unit>
       <Unit>
         <Filename Value="..\utils.pas"/>

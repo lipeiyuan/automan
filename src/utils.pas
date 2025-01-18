@@ -9,10 +9,10 @@ uses
 
 function MaxCurrency(a, b: currency): currency;
 function MinCurrency(a, b: currency): currency;
-function RoundDown(Value: currency; digits: Math.TRoundToRange = -2): currency;
-function RoundUp(Value: currency; digits: Math.TRoundToRange = -2): currency;
-function RoundArithmetic(Value: currency; digits: Math.TRoundToRange = -2): currency;
-function RoundRange(cost, minCost, maxCost: currency): currency;
+function RoundDown(Value: currency; Dights: Math.TRoundToRange = -2): currency;
+function RoundUp(Value: currency; Dights: Math.TRoundToRange = -2): currency;
+function RoundArithmetic(Value: currency; Dights: Math.TRoundToRange = -2): currency;
+function RoundRange(Cost, MinCost, MaxCost: currency): currency;
 function RoundCeilInt(Value: currency): currency;
 
 implementation
@@ -36,7 +36,7 @@ begin
     Exit(a);
 end;
 
-function RoundCurrencyTo(Value: currency; digits: Math.TRoundToRange;
+function RoundCurrencyTo(Value: currency; Dights: Math.TRoundToRange;
   roundMode: TFPURoundingMode; roundType: TRoundType): currency;
 var
   ret, tmp: currency;
@@ -46,7 +46,7 @@ begin
   tmp := StrToCurr('10000');
 
   ret := Value * tmp;
-  newDigits := digits + 4;
+  newDigits := Dights + 4;
 
   if roundType = TRoundType.rtDefault then
   begin
@@ -62,43 +62,43 @@ begin
   Exit(ret);
 end;
 
-function RoundDown(Value: currency; digits: Math.TRoundToRange = -2): currency;
+function RoundDown(Value: currency; Dights: Math.TRoundToRange = -2): currency;
 begin
-  Exit(RoundCurrencyTo(Value, digits, TFPURoundingMode.rmDown, TRoundType.rtDefault));
+  Exit(RoundCurrencyTo(Value, Dights, TFPURoundingMode.rmDown, TRoundType.rtDefault));
 end;
 
-function RoundUp(Value: currency; digits: Math.TRoundToRange = -2): currency;
+function RoundUp(Value: currency; Dights: Math.TRoundToRange = -2): currency;
 begin
-  Exit(RoundCurrencyTo(Value, digits, TFPURoundingMode.rmUp, TRoundType.rtDefault));
+  Exit(RoundCurrencyTo(Value, Dights, TFPURoundingMode.rmUp, TRoundType.rtDefault));
 end;
 
-function RoundArithmetic(Value: currency; digits: Math.TRoundToRange = -2): currency;
+function RoundArithmetic(Value: currency; Dights: Math.TRoundToRange = -2): currency;
 begin
-  Exit(RoundCurrencyTo(Value, digits, TFPURoundingMode.rmNearest,
+  Exit(RoundCurrencyTo(Value, Dights, TFPURoundingMode.rmNearest,
     TRoundType.rtArithmetic));
 end;
 
-function RoundRange(cost, minCost, maxCost: currency): currency;
+function RoundRange(Cost, MinCost, MaxCost: currency): currency;
 var
-  tmp: currency;
+  Tmp: currency;
 begin
-  if minCost > maxCost then
+  if MinCost > MaxCost then
   begin
-    tmp := minCost;
-    minCost := maxCost;
-    maxCost := tmp;
+    Tmp := MinCost;
+    MinCost := MaxCost;
+    MaxCost := Tmp;
   end;
 
-  tmp := MaxCurrency(minCost, cost);
-  tmp := MinCurrency(maxCost, tmp);
-  Exit(tmp);
+  Tmp := MaxCurrency(MinCost, Cost);
+  Tmp := MinCurrency(MaxCost, Tmp);
+  Exit(Tmp);
 end;
 
 function RoundCeilInt(Value: currency): currency;
 var
-  digits: Math.TRoundToRange = 0;
+  Dights: Math.TRoundToRange = 0;
 begin
-  Exit(RoundUp(Value, digits));
+  Exit(RoundUp(Value, Dights));
 end;
 
 end.

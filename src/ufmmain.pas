@@ -14,7 +14,6 @@ type
 
   TFormMain = class(TForm)
     AddTradeButton: TButton;
-    DebugEdit: TEdit;
     procedure AddTradeButtonClick(Sender: TObject);
   private
 
